@@ -9,7 +9,7 @@ export default async function Home () {
   if (session === null) {
     redirect('/login')
   }
-  const { data: tasks } = await supabase.from('tasks').select('*')
+  const { data: tasks } = await supabase.from('tasks').select('*, users(*)')
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <AuthButtonServer />
